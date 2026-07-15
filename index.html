@@ -102,56 +102,92 @@
             aria-controls="main-menu"
             aria-expanded="false"
           >
-            <img
-              class="menu-button__image"
-              src="./menu.png"
-              alt=""
-            />
+            <span class="menu-button__line"></span>
+            <span class="menu-button__line"></span>
+            <span class="menu-button__line"></span>
           </button>
         </div>
       </header>
 
-      <!-- Меню обязательно должно находиться внутри hero -->
       <nav
         class="menu"
         id="main-menu"
         aria-hidden="true"
         aria-label="Main navigation"
       >
-        <a
-          class="menu__link"
-          href="#top"
-        >
-          Home
-        </a>
+        <div class="menu__content">
+          <div class="menu__links">
+            <a
+              class="menu__link"
+              href="#top"
+            >
+              Home
+            </a>
 
-        <a
-          class="menu__link"
-          href="#museum-hours"
-        >
-          Museum hours
-        </a>
+            <a
+              class="menu__link"
+              href="#museum-hours"
+            >
+              About us
+            </a>
 
-        <a
-          class="menu__link"
-          href="#exhibitions"
-        >
-          Now on view
-        </a>
+            <a
+              class="menu__link"
+              href="#exhibitions"
+            >
+              Gallery
+            </a>
 
-        <a
-          class="menu__link"
-          href="#explore-online"
-        >
-          Explore online
-        </a>
+            <a
+              class="menu__link"
+              href="#explore-online"
+            >
+              Explore online
+            </a>
 
-        <a
-          class="menu__link"
-          href="#contact-us"
-        >
-          Contact us
-        </a>
+            <a
+              class="menu__link"
+              href="#contact-us"
+            >
+              Contacts
+            </a>
+          </div>
+
+          <div class="menu__contacts">
+            <div class="menu__contact">
+              <p class="menu__contact-title">
+                The Met Fifth Avenue
+              </p>
+
+              <a
+                class="menu__contact-phone"
+                href="tel:+12125357710"
+              >
+                +1 212-535-7710
+              </a>
+            </div>
+
+            <div class="menu__contact">
+              <p class="menu__contact-title">
+                The Met Cloisters
+              </p>
+
+              <a
+                class="menu__contact-phone"
+                href="tel:+12129233700"
+              >
+                +1 212-923-3700
+              </a>
+            </div>
+
+            <a
+              class="menu__call-link"
+              href="tel:+12125357710"
+            >
+              Call to order
+            </a>
+          </div>
+        </div>
       </nav>
 
       <div class="hero__content">
