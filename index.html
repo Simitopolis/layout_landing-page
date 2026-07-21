@@ -30,6 +30,12 @@
       rel="stylesheet"
       href="./src/styles/main.scss"
     />
+
+    <link
+      rel="icon"
+      type="Slice 1.png"
+      href="./Slice 1.png"
+    />
   </head>
 
   <body>
@@ -457,9 +463,17 @@
                 <p class="contact-us__label">Address</p>
 
                 <address class="contact-us__address">
-                  1000 Fifth Avenue
-                  <br />
-                  New York, NY 10028
+                  <a
+                    class="contact-us__address-link"
+                    href="https://www.google.com/maps/search/?api=1&query=The+Metropolitan+Museum+of+Art+1000+Fifth+Avenue+New+York+NY+10028"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open The Met Fifth Avenue in Google Maps"
+                  >
+                    1000 Fifth Avenue
+                    <br />
+                    New York, NY 10028
+                  </a>
                 </address>
               </div>
             </article>
@@ -482,11 +496,19 @@
                 <p class="contact-us__label">Address</p>
 
                 <address class="contact-us__address">
-                  99 Margaret Corbin Drive
-                  <br />
-                  Fort Tryon Park
-                  <br />
-                  New York, NY 10040
+                  <a
+                    class="contact-us__address-link"
+                    href="https://www.google.com/maps/search/?api=1&query=The+Met+Cloisters+99+Margaret+Corbin+Drive+New+York+NY+10040"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open The Met Cloisters in Google Maps"
+                  >
+                    99 Margaret Corbin Drive
+                    <br />
+                    Fort Tryon Park
+                    <br />
+                    New York, NY 10040
+                  </a>
                 </address>
               </div>
             </article>
@@ -548,39 +570,33 @@
     <footer class="footer"></footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const menuButton = document.querySelector('.menu-button');
-        const menu = document.querySelector('#main-menu');
+      const menuButton = document.querySelector('.menu-button');
+      const menu = document.querySelector('.menu');
+      const menuLinks = document.querySelectorAll('.menu__link');
 
-        if (!menuButton || !menu) {
-          return;
-        }
+      function setMenuState(isOpen) {
+        menu.classList.toggle('menu--open', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
 
-        const menuLinks = menu.querySelectorAll('.menu__link');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
 
-        function setMenuState(isOpen) {
-          menu.classList.toggle('menu--open', isOpen);
-          document.body.classList.toggle('menu-open', isOpen);
+        menuButton.setAttribute(
+          'aria-label',
+          isOpen ? 'Close menu' : 'Open menu',
+        );
 
-          menuButton.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
+      }
 
-          menuButton.setAttribute(
-            'aria-label',
-            isOpen ? 'Close menu' : 'Open menu',
-          );
-
-          menu.setAttribute('aria-hidden', String(!isOpen));
-        }
-
+      if (menuButton && menu) {
         menuButton.addEventListener('click', () => {
-          const isOpen =
-            menuButton.getAttribute('aria-expanded') === 'true';
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
 
           setMenuState(!isOpen);
         });
 
-        menuLinks.forEach((menuLink) => {
-          menuLink.addEventListener('click', () => {
+        menuLinks.forEach((link) => {
+          link.addEventListener('click', () => {
             setMenuState(false);
           });
         });
@@ -588,10 +604,9 @@
         document.addEventListener('keydown', (event) => {
           if (event.key === 'Escape') {
             setMenuState(false);
-            menuButton.focus();
           }
         });
-      });
+      }
     </script>
   </body>
 </html>
